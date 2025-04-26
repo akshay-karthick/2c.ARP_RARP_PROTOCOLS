@@ -52,16 +52,6 @@ while True:
 
 
 ## PROGRAM - RARP
-## SERVER
-```
-import socket
-s=socket.socket()
-s.connect(('localhost',9000))
-while True:
-    ip=input("Enter MAC Address : ")
-    s.send(ip.encode())
-    print("Logical Address",s.recv(1024).decode())
-```
 ## CLIENT
 ```
 import socket
@@ -76,6 +66,16 @@ while True:
         c.send(address[ip].encode())
     except KeyError:
         c.send("Not Found".encode())
+```
+## SERVER
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',9000))
+while True:
+    ip=input("Enter MAC Address : ")
+    s.send(ip.encode())
+    print("Logical Address",s.recv(1024).decode())
 ```
 ## OUPUT -RARP
 ## SERVER
